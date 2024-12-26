@@ -1,22 +1,10 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jazevedo <jazevedo@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 00:51:43 by jazevedo          #+#    #+#             */
-/*   Updated: 2024/04/11 19:17:09 by jazevedo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
 char	*free_function(char *wardrobe, char *buffer)
 {
 	char	*temp;
 
-	temp = ft_strjoin(wardrobe, buffer);
+	temp = my_strjoin(wardrobe, buffer);
 	free(wardrobe);
 	return (temp);
 }
@@ -60,7 +48,7 @@ char	*remover(char *wardrobe)
 		free(wardrobe);
 		return (NULL);
 	}
-	new_wardrobe = ft_strdup(wardrobe + end);
+	new_wardrobe = my_strdup(wardrobe + end);
 	free(wardrobe);
 	return (new_wardrobe);
 }
@@ -76,7 +64,7 @@ char	*reader(int fd)
 	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	while (bytes > 0 && (!wardrobe || !ft_strchr(wardrobe, '\n')))
+	while (bytes > 0 && (!wardrobe || !my_strchr(wardrobe, '\n')))
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes == -1)

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jazevedo <jazevedo@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 01:46:41 by jazevedo          #+#    #+#             */
-/*   Updated: 2024/04/11 19:06:59 by jazevedo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
 int	nmax(int x, int y)
@@ -19,15 +7,15 @@ int	nmax(int x, int y)
 	return (y);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*my_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	s_size;
 	char	*new_s;
 
-	s_size = ft_strlen(s);
+	s_size = my_strlen(s);
 	if ((size_t)start > s_size)
-		return (ft_strdup(""));
+		return (my_strdup(""));
 	s += start;
 	s_size -= start;
 	if (s_size > len)
@@ -69,7 +57,7 @@ static void	free_split(char **final)
 	free(final);
 }
 
-char	**ft_split(char const *s, char c)
+char	**my_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -90,7 +78,7 @@ char	**ft_split(char const *s, char c)
 		wordsize = 0;
 		while (s[wordsize] && s[wordsize] != c)
 			wordsize++;
-		final[i] = ft_substr(s, 0, wordsize);
+		final[i] = my_substr(s, 0, wordsize);
 		if (final[i] == NULL)
 			return (free_split(final), NULL);
 		s += wordsize;

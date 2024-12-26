@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jazevedo <jazevedo@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 00:36:20 by jazevedo          #+#    #+#             */
-/*   Updated: 2024/04/12 16:48:09 by jazevedo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FDF_H
 # define FDF_H
 
@@ -113,11 +101,11 @@ void			add_zoom(t_bresenham *bres, int zoom);
 //----------| UTILS |----------//
 int				nmax(int x, int y);
 char			*get_next_line(int fd);
-size_t			ft_strlen(const char *str);
-int				ft_atoi(const char *nptr);
-char			*ft_strchr(const char *s, int c);
-char			*ft_strdup(const char *s);
-char			*ft_strjoin(char *s1, char *s2);
-char			**ft_split(char const *s, char c);
+size_t			my_strlen(const char *str);
+int				my_atoi(const char *nptr);
+char			*my_strchr(const char *s, int c);
+char			*my_strdup(const char *s);
+char			*my_strjoin(char *s1, char *s2);
+char			**my_split(char const *s, char c);
 
 #endif //| FDF.

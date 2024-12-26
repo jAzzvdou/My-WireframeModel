@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   parse_map.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jazevedo <jazevedo@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 00:59:00 by jazevedo          #+#    #+#             */
-/*   Updated: 2024/04/11 19:06:35 by jazevedo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
 static int	clean(char **temp_matrix, int **matrix, int count, int fd)
@@ -62,7 +50,7 @@ static int	fill_matrix(t_fdf *fdf, int **matrix, int fd)
 	while (++i < fdf->height)
 	{
 		mapping = get_next_line(fd);
-		temp_matrix = ft_split(mapping, ' ');
+		temp_matrix = my_split(mapping, ' ');
 		free(mapping);
 		if (testmap(temp_matrix) != fdf->width)
 			return (clean(temp_matrix, matrix, i, fd));
@@ -70,7 +58,7 @@ static int	fill_matrix(t_fdf *fdf, int **matrix, int fd)
 		matrix[i] = (int *)malloc(sizeof(int) * fdf->width);
 		while (++temp_i < fdf->width)
 		{
-			matrix[i][temp_i] = ft_atoi(temp_matrix[temp_i]);
+			matrix[i][temp_i] = my_atoi(temp_matrix[temp_i]);
 			free(temp_matrix[temp_i]);
 		}
 		free(temp_matrix);
@@ -102,7 +90,7 @@ int	**read_map(int fd, char *argv1, t_fdf *fdf)
 	if (line)
 	{
 		fdf->height += 1;
-		matrix = ft_split(line, ' ');
+		matrix = my_split(line, ' ');
 		while (matrix[++i])
 		{
 			fdf->width += 1;

@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: jazevedo <jazevedo@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 01:46:58 by jazevedo          #+#    #+#             */
-/*   Updated: 2024/04/11 19:06:53 by jazevedo         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "fdf.h"
 
-size_t	ft_strlen(const char *str)
+size_t	my_strlen(const char *str)
 {
 	size_t	i;
 
@@ -24,7 +12,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-int	ft_atoi(const char *nptr)
+int	my_atoi(const char *nptr)
 {
 	int	nb;
 	int	mult;
@@ -45,7 +33,7 @@ int	ft_atoi(const char *nptr)
 	return (nb * mult);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*my_strchr(const char *s, int c)
 {
 	char	ch;
 
@@ -57,12 +45,12 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
+char	*my_strdup(const char *s)
 {
 	int		i;
 	char	*final;
 
-	final = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	final = (char *)malloc(sizeof(char) * (my_strlen(s) + 1));
 	if (!final)
 		return (NULL);
 	i = -1;
@@ -72,14 +60,14 @@ char	*ft_strdup(const char *s)
 	return (final);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*my_strjoin(char *s1, char *s2)
 {
 	size_t	i;
 	char	*new_s;
 
 	if (!s1 && !s2)
 		return (NULL);
-	new_s = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	new_s = malloc(sizeof(char) * (my_strlen(s1) + my_strlen(s2) + 1));
 	if (!new_s)
 		return (NULL);
 	i = 0;
